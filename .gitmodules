@@ -1,0 +1,3 @@
+[submodule "redlock"]
+	path = redlock
+	url = git@github.com:damonnie/redlock-php.git
