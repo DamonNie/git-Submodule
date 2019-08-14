@@ -14,7 +14,7 @@ Pending
 
       answer:git submodule add【library-url】，参考<span style="color: #ff0000;">【****使用submodule】****</span>。
 
- ![](https://oppo-nie.oss-cn-shenzhen.aliyuncs.com/%E5%9B%BE%E7%89%871.png)
+ ![](./submodule-1.png)
 
 *   library库在其他的项目中被修改了可以更新到远程的代码库中?
 
@@ -24,7 +24,7 @@ Pending
 
       answer:<span style="color: #ff0000;">【****使用submodule】****</span>中有说明每个submodule中有独立的commit id，依赖commit id单独管理submodule目录，依据submodule目录中commit id是否与公共库的同步选择是否更新
 
- ![](https://oppo-nie.oss-cn-shenzhen.aliyuncs.com/%E5%9B%BE%E7%89%872.png)
+ ![](./submodule-2.png)
 
 *   如何在clone的时候能够自动导入library库?
 
@@ -44,21 +44,21 @@ git submodule add [<u>git@github.com:damonnie/redlock-php.git</u>](mailto:git@gi
 
 *   使用<span style="color: #ff0000;">git status</span>命令查看当前仓库状态：
 
-     ![](https://oppo-nie.oss-cn-shenzhen.aliyuncs.com/submodule-3.png)
+     ![](./submodule-3.png)
 
 可以看到多了两个需要提交的文件：.<span style="color: #ff0000;">gitmodules</span>和 <span style="color: #ff0000;">redlock</span>
 
 *   .gitmodules 内容<span style="color: #ff0000;">包含Submodule的主要信息</span>，指定<span style="color: #ff0000;">reposirory</span>,指定路径:
 
-    ![](https://oppo-nie.oss-cn-shenzhen.aliyuncs.com/submodule-4.png)
+    ![](./submodule-4.png)
 
 *   要查看当前代码仓库所使用的子模块及其状态，除了看 .gitmodules 文件外，还可以执行 <span style="color: #ff0000;">git submodule</span>命令
 
-     ![](https://oppo-nie.oss-cn-shenzhen.aliyuncs.com/submodule-5.png)
+     ![](./submodule-5.png)
 
 *   新文件redlock<span style="color: #ff0000;">保存子模块的信息</span>，默认情况下子模块会将子项目放到一个与仓库<span style="color: #ff0000;">同名的目录中</span>，本例中是redlock。如果想放到其他地方，那么可以命令后添加一个<span style="color: #ff0000;">不同的路径</span>。此处，可以添加多个不同的子模块
 
-     ![](https://oppo-nie.oss-cn-shenzhen.aliyuncs.com/submodule-6.png)
+     ![](./submodule-6.png)
 
 这里需要说明的是，submodule目录只保护子项目的commit id，父项目的git并不会记录submodule的文件变动。另外，这两个文件都需要提交到父项目的git中
 
@@ -78,7 +78,7 @@ git submodule add [<u>git@github.com:damonnie/redlock-php.git</u>](mailto:git@gi
 
 *   此处<span style="color: #ff0000;">redlock</span>中已经变更为submodule<span style="color: #ff0000;">最新的commit id</span>.由原来的4066b307978ac81bf16e878aeb21210a5b794f06变更为717af34cae93e0d24dba04bbc166b8f1840f3893
 
-     ![](https://oppo-nie.oss-cn-shenzhen.aliyuncs.com/submodule-7.png)
+     ![](./submodule-7.png)
 
 ## ****更新Submodule****
 
@@ -102,7 +102,7 @@ clone Submodule有两种方式 一种是采用<span style="color: #ff0000;">递�
 
         <span style="background-color: #999999;"> git clone git@github.com:DamonNie/git-Submodule.git --recursive</span>
 
-     ![](https://oppo-nie.oss-cn-shenzhen.aliyuncs.com/submodule-8.png)
+     ![](./submodule-8.png)
 
      这里一定要带上递归参数，否则init Submodule 的clone是不全的
 
@@ -114,19 +114,19 @@ clone Submodule有两种方式 一种是采用<span style="color: #ff0000;">递�
 
          <span style="background-color: #999999;">git submodule init</span>
 
-     ![](https://oppo-nie.oss-cn-shenzhen.aliyuncs.com/submodule-9.png)
+     ![](./submodule-9.png)
 
 *   更新Submodule:
 
          <span style="background-color: #999999;">git submodule update</span>
 
-     ![](https://oppo-nie.oss-cn-shenzhen.aliyuncs.com/submodule-10.png)
+     ![](./submodule-10.png)
 
     此处要注意:submodule文件都是<span style="color: #ff0000;">init状态</span>，如要获取最新，请<span style="color: #ff0000;">切换要同步的commit id所在分支</span>，并<span style="color: #ff0000;">git pull</span>操作
 
-    ![](https://oppo-nie.oss-cn-shenzhen.aliyuncs.com/submodule-11.png)
+    ![](./submodule-11.png)
 
-    ![](https://oppo-nie.oss-cn-shenzhen.aliyuncs.com/submodule-12.png)
+    ![](./submodule-12.png)
 
 ## ****删除Submodule****
 
@@ -136,7 +136,7 @@ clone Submodule有两种方式 一种是采用<span style="color: #ff0000;">递�
 *   使用<span style="color: #ff0000;">rm -rf .git/modules/redlock</span>, 删除.git下的缓存模块，最后提交项目。
 *   使用<span style="color: #ff0000;">git rm --cached redlock</span>将redlock从版本控制中删除（本地仍保留有），若不需要可不带 --cached进行完全删除
 
-     ![](https://oppo-nie.oss-cn-shenzhen.aliyuncs.com/submodule-13.png)
+     ![](./submodule-13.png)
 
 *   使用<span style="color: #ff0000;">vim .gitmodules </span>可打开vim编辑,删除对应的内容
 
