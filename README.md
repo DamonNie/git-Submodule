@@ -142,7 +142,8 @@ clone Submodule有两种方式 一种是采用<span style="color: #ff0000;">递�
 ## ****遇见git submodule的坑****
 *	<span>切换分支的时候,终端突然出现这个问题 The following untracked working tree files would be overwritten by checkout。</span>
      ![](./submodule-14.png)
-	字面意思上理解就是，有git工具没有跟踪到的文件切换后会被覆盖。通过资料查询解决方法
+
+字面意思上理解就是，有git工具没有跟踪到的文件切换后会被覆盖。通过资料查询解决方法
 	
 	**解决办法：删除这些文件，再切换到对的分支上再拉取代码**
 
