@@ -146,7 +146,7 @@ clone Submodule有两种方式 一种是采用<span style="color: #ff0000;">递�
 	
 	**解决办法：删除这些文件，再切换到对的分支上再拉取代码**
 
-   <span style="background-color: #999999;">git clean -d -fx ""</span>
+  		<span style="background-color: #999999;">git clean -d -fx ""</span>
 
 如若依然无法切换，删除git submodule对应控制的代码即可。
 
