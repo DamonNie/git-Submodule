@@ -139,7 +139,14 @@ clone Submodule有两种方式 一种是采用<span style="color: #ff0000;">递�
      ![](./submodule-13.png)
 
 *   使用<span style="color: #ff0000;">vim .gitmodules </span>可打开vim编辑,删除对应的内容
-
+## ****遇见git submodule的坑****
+*	<span>切换分支的时候,终端突然出现这个问题 The following untracked working tree files would be overwritten by checkout。</span>
+	![](./submodule-14.jpg)
+	字面意思上理解就是，有git工具没有跟踪到的文件切换后会被覆盖。通过资料查询解决方法
+	
+	**解决办法：删除这些文件，再切换到对的分支上再拉取代码**
+		<span style="background-color: #999999;">git clean  -d  -fx ""</span>
+		如若依然无法切换，删除git submodule对应控制的代码即可。
 参考: <u>姜家志:</u>[<u>使用Git Submodule管理子模块</u>](https://segmentfault.com/a/1190000003076028)
 
         <u>唐巧的博客:</u>[<u>Git submodule的坑</u>](https://blog.devtang.com/2013/05/08/git-submodule-issues/)
