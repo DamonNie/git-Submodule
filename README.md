@@ -151,8 +151,35 @@ clone Submodule有两种方式 一种是采用<span style="color: #ff0000;">递�
   	git clean -d -fx ""
 
 如若依然无法切换，删除git submodule对应控制的代码即可。
+*  使用git diff时候提示我:
+```bash
+diff --git a/fin-common-ultimate b/fin-common-ultimate
+--- a/fin-common-ultimate
++++ b/fin-common-ultimate
+@@ -1 +1 @@
+-Subproject commit 0fdda668c6480ecb21eae7c6a8cd1357ff531d4b
++Subproject commit 0fdda668c6480ecb21eae7c6a8cd1357ff531d4b-dirty
+```
+答：在git的1.7.0及更高版本中，如果子模块具有任何已修改的文件或未跟踪的文件，则它们被视为脏文件，而以前，只有子模块中的HEAD指向错误的提交时，情况才会如此。
+解决方案:
+> 1、在返回父模块之前，提交或撤销子模块中的修改文件。可以使用一下命令撤销更改:
+```git
+git submodule foreach --recursive git checkout .
+```
+> 2、忽略"脏"的子模块
+```git
+# 执行git命令:
+git status --ignore-submodules=dirty
+
+#忽略任何子模块中的所有未跟踪文件
+git config --global diff.ignoreSubmodules dirty
+
+# 添加--ignore-submodules到中git diff
+[diff]
+  ignoreSubmodules = dirty
+```
+这里我们使用第一种方案，撤销脏的子模块中的修改文件。更多详细请移步[Git diff says subproject is dirty](https://stackoverflow.com/questions/4873980/git-diff-says-subproject-is-dirty)
 
 
-参考: <u>姜家志:</u>[<u>使用Git Submodule管理子模块</u>](https://segmentfault.com/a/1190000003076028)
 
-<u>唐巧的博客:</u>[<u>Git submodule的坑</u>](https://blog.devtang.com/2013/05/08/git-submodule-issues/)
+参考: <u>姜家志:</u>[<u>使用Git Submodule管理子模块</u>](https://segmentfault.com/a/1190000003076028)<u>唐巧的博客:</u>[<u>Git submodule的坑</u>](https://blog.devtang.com/2013/05/08/git-submodule-issues/)
